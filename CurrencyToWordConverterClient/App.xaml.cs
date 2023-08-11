@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CurrencyToWordConverterClient.Adapter;
+using CurrencyToWordConverterClient.Interfaces;
+using CurrencyToWordConverterClient.Workflows;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 
@@ -10,8 +14,17 @@ public partial class App : Application {
 
 
     public App() {
+
+        //var builder = Host.CreateApplicationBuilder().Build();
+        //builder.Configuration.AddJsonFile("externalServicesSettings.json", optional: false, reloadOnChange: true);
+
         AppHost = Host.CreateDefaultBuilder().ConfigureServices((hostContext, services) => {
+            services.AddHttpClient<CurrencyToWordConverterAdapter>();
+            services.AddSingleton<CurrencyToWordConverterAdapter>();
+            services.AddSingleton<ICurrencyToWordConverter, CurrencyToWordConverter>();
+            services.AddSingleton<UserWorkflows>();
             services.AddSingleton<MainWindow>();
+            
         }).Build();
     }
 
