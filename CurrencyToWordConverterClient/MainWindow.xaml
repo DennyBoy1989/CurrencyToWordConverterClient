@@ -13,15 +13,38 @@
         <viewmodels:CurrencyToWordConverterVm/>
     </Window.DataContext>
     -->
-    <Grid HorizontalAlignment="Left">
-        <Grid HorizontalAlignment="Left">
-            <uielements:NumberTextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  MaxLength="9" Text="{Binding Dollars,Delay=500,UpdateSourceTrigger=PropertyChanged}"/>
-        </Grid>
-        <Grid>
-            <uielements:NumberTextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="400,0,100,0"  MaxLength="2" Text="{Binding Cents,Delay=500,UpdateSourceTrigger=PropertyChanged}"/>
-        </Grid>
-        <Grid>
-            <Label Content="{Binding WordRepresentation}" Margin="0,40,0,0" />
-        </Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Content="Currency-To-Word Converter" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBlock Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" TextWrapping="WrapWithOverflow" TextAlignment="Center" VerticalAlignment="Center">
+            Please enter some numbers in the 'Dollars' or 'Cents' text fields, to get the respective word representation!
+        </TextBlock>
+        
+        <Label Grid.Column="2" Grid.Row="3"  Content="Dollars:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <uielements:NumberTextBox Grid.Column="3" Grid.Row="3" Width="120"  MaxLength="9" Text="{Binding Dollars,Delay=500,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center"/>
+        
+        <Label Grid.Column="2" Grid.Row="4"  Content="Cents:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <uielements:NumberTextBox Grid.Column="3" Grid.Row="4" Width="120" MaxLength="2" Text="{Binding Cents,Delay=500,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center"/>
+        
+        <Label Grid.Column="1" Grid.Row="5" Content="Output:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBlock Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="5" TextWrapping="WrapWithOverflow" Text="{Binding WordRepresentation}" VerticalAlignment="Center"/>
     </Grid>
 </Window>

@@ -16,7 +16,7 @@ public partial class CurrencyToWordConverterVm : ObservableObject {
     string cents = "00";
 
     [ObservableProperty]
-    string wordRepresentation = "Enter your string";
+    string wordRepresentation = "one hundred dollars";
 
     public CurrencyToWordConverterVm(UserWorkflows userWorkflows) {
         this.userWorkflows = userWorkflows;
