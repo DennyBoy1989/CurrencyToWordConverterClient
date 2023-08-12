@@ -10,10 +10,10 @@ public partial class CurrencyToWordConverterVm : ObservableObject {
     private UserWorkflows userWorkflows;
 
     [ObservableProperty]
-    string dollars = "dollars";
+    string dollars = "100";
 
     [ObservableProperty]
-    string cents = "cents";
+    string cents = "00";
 
     [ObservableProperty]
     string wordRepresentation = "Enter your string";
