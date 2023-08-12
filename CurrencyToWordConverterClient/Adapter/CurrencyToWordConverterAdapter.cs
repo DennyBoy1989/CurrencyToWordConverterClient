@@ -20,7 +20,7 @@ public class CurrencyToWordConverterAdapter {
 
     public virtual async Task<string> GetWordRepresentation(string currencyString) {
         HttpResponseMessage response;
-        using (var request = new HttpRequestMessage(HttpMethod.Get, $"/wordrepresentation/{currencyString}")) {
+        using (var request = new HttpRequestMessage(HttpMethod.Get, $"https://localhost:7107/wordrepresentation/{currencyString}")) {
             try {
                 response = await httpClient.SendAsync(request);
 
