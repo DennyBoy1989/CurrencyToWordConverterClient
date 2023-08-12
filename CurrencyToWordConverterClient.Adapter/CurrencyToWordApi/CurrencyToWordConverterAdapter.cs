@@ -1,12 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using System.Collections.Immutable;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System;
 using System.Net.Http.Json;
 
-namespace CurrencyToWordConverterClient.Adapter;
+namespace CurrencyToWordConverterClient.Adapter.CurrencyToWordApi;
 
 public class CurrencyToWordConverterAdapter {
 

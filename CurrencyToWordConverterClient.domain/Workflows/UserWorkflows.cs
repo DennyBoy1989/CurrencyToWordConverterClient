@@ -1,8 +1,7 @@
-﻿using CurrencyToWordConverterClient.Domain;
-using CurrencyToWordConverterClient.Interfaces;
-using System.Threading.Tasks;
+﻿using CurrencyToWordConverterClient.Domain.DomainTypes;
+using CurrencyToWordConverterClient.Domain.Interfaces;
 
-namespace CurrencyToWordConverterClient.Workflows;
+namespace CurrencyToWordConverterClient.Domain.Workflows;
 
 public class UserWorkflows {
 
@@ -12,7 +11,7 @@ public class UserWorkflows {
         this.currencyToWordConverter = currencyToWordConverter;
     }
 
-    public async Task<CurrencyWordRepresentation> GetWordRepresentationOfGivenDollarAndCents(string dollarString , string centString) {
+    public async Task<CurrencyWordRepresentation> GetWordRepresentationOfGivenDollarAndCents(string dollarString, string centString) {
         return await currencyToWordConverter.GetWordRepresentationOfCurrency(new Currency(dollarString, centString));
     }
 }

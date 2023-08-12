@@ -1,7 +1,6 @@
-﻿using CurrencyToWordConverterClient.Domain;
-using System.Threading.Tasks;
+﻿using CurrencyToWordConverterClient.Domain.DomainTypes;
 
-namespace CurrencyToWordConverterClient.Interfaces;
+namespace CurrencyToWordConverterClient.Domain.Interfaces;
 
 public interface ICurrencyToWordConverter {
 

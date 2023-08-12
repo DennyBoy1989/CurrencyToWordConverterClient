@@ -1,7 +1,7 @@
-﻿using CurrencyToWordConverterClient.Adapter;
-using CurrencyToWordConverterClient.Interfaces;
+﻿using CurrencyToWordConverterClient.Adapter.CurrencyToWordApi;
+using CurrencyToWordConverterClient.Domain.Interfaces;
+using CurrencyToWordConverterClient.Domain.Workflows;
 using CurrencyToWordConverterClient.ViewModels;
-using CurrencyToWordConverterClient.Workflows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
