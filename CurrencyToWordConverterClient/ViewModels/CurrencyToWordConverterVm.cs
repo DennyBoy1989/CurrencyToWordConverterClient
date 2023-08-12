@@ -1,8 +1,24 @@
-﻿namespace CurrencyToWordConverterClient.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CurrencyToWordConverterClient.Workflows;
 
-public class CurrencyToWordConverterVm {
+namespace CurrencyToWordConverterClient.ViewModels;
 
-    private string dollars;
-    private string cents;
-    private string wordRepresentation;
+public partial class CurrencyToWordConverterVm : ObservableObject {
+
+    private UserWorkflows userWorkflows;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(WordRepresentation))]
+    string dollars = "dollars";
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(WordRepresentation))]
+    string cents = "cents";
+
+    public string WordRepresentation => $"{Dollars},{Cents}";
+
+    public CurrencyToWordConverterVm(UserWorkflows userWorkflows) {
+        this.userWorkflows = userWorkflows;
+    }
+
 }

@@ -1,5 +1,6 @@
 ﻿using CurrencyToWordConverterClient.Adapter;
 using CurrencyToWordConverterClient.Interfaces;
+using CurrencyToWordConverterClient.ViewModels;
 using CurrencyToWordConverterClient.Workflows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,10 +21,12 @@ public partial class App : Application {
 
         AppHost = Host.CreateDefaultBuilder().ConfigureServices((hostContext, services) => {
             services.AddHttpClient<CurrencyToWordConverterAdapter>();
+
             services.AddSingleton<CurrencyToWordConverterAdapter>();
             services.AddSingleton<ICurrencyToWordConverter, CurrencyToWordConverter>();
             services.AddSingleton<UserWorkflows>();
             services.AddSingleton<MainWindow>();
+            services.AddSingleton<CurrencyToWordConverterVm>();
             
         }).Build();
     }

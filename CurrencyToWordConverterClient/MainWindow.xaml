@@ -4,15 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyToWordConverterClient"
+        xmlns:viewmodels="clr-namespace:CurrencyToWordConverterClient.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <!--
+    <Window.DataContext>
+        <viewmodels:CurrencyToWordConverterVm/>
+    </Window.DataContext>
+    -->
     <Grid HorizontalAlignment="Left">
         <Grid HorizontalAlignment="Left">
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Dollars,Delay=500,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         <Grid>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="200,0,100,0"/>
+            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="200,0,100,0" Text="{Binding Cents,Delay=500,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
-
+        <Grid>
+            <Label Content="{Binding WordRepresentation}" Margin="0,40,0,0" /> 
+        </Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="526,122,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
