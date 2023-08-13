@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace CurrencyToWordConverterClient.Adapter.CurrencyToWordApi;
 
-namespace CurrencyToWordConverterClient.Adapter.CurrencyToWordApi {
-    public class CurrencyToWordConverterApiOptions {
-        public string BaseUrl { get; set; } = null!;
-    }
+/// <summary>
+/// Holds configurations for the currency to word api endpoint. Can be injected using the .net Options pattern.
+/// </summary>
+public class CurrencyToWordConverterApiOptions {
+    public string BaseUrl { get; set; } = null!;
 }

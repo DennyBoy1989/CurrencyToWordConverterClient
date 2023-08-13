@@ -1,9 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CurrencyToWordConverterClient.Domain.DomainErrors;
 using CurrencyToWordConverterClient.Domain.Workflows;
+using System;
 using System.Threading.Tasks;
 
 namespace CurrencyToWordConverterClient.ViewModels;
 
+/// <summary>
+/// View Model for the MainWindow. Handles dollar and cent inputs and displays the word reprensetation fetched by external services.
+/// Uses the Cummunity Toolkit MVVM to generate additional source files.
+/// </summary>
 public partial class CurrencyToWordConverterVm : ObservableObject {
 
     private UserWorkflows userWorkflows;
@@ -30,7 +36,16 @@ public partial class CurrencyToWordConverterVm : ObservableObject {
     }
 
     private async Task GetWordRepresentation() {
-        var wordRepresentationObject =  await userWorkflows.GetWordRepresentationOfGivenDollarAndCents(Dollars, Cents);
-        WordRepresentation = wordRepresentationObject.Value;
+        try {
+            var wordRepresentationObject = await userWorkflows.GetWordRepresentationOfGivenDollarAndCents(Dollars, Cents);
+            WordRepresentation = wordRepresentationObject.Value;
+        }
+        catch (Exception ex) {
+            WordRepresentation = ex switch {
+                ConnectionError => "Could not contact the needed backend service. Please check if the service is running or the connection string is set correctly.",
+                _ => "Something complete unforeseen happend. Please contact the support!"
+            };
+        }
+        
     }
 }

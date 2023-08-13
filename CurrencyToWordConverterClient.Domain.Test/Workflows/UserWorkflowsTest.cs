@@ -1,11 +1,9 @@
-﻿using Castle.Core.Logging;
-using CurrencyToWordConverterClient.Domain.DomainErrors;
+﻿using CurrencyToWordConverterClient.Domain.DomainErrors;
 using CurrencyToWordConverterClient.Domain.DomainTypes;
 using CurrencyToWordConverterClient.Domain.Test.Stubs;
 using CurrencyToWordConverterClient.Domain.Workflows;
 using FakeItEasy;
 using Microsoft.Extensions.Logging;
-using NUnit.Framework;
 
 namespace CurrencyToWordConverterClient.Domain.Test.Workflows;
 

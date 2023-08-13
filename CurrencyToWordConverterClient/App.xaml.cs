@@ -9,6 +9,9 @@ using System.Windows;
 
 namespace CurrencyToWordConverterClient;
 
+/// <summary>
+/// Enhanced startup of appllication. Handles dependency injection and configurations.
+/// </summary>
 public partial class App : Application {
 
     public static IHost? AppHost { get; private set; }
@@ -17,9 +20,6 @@ public partial class App : Application {
     public App() {
 
         var builder = Host.CreateApplicationBuilder();
-
-        var test = builder.Configuration.GetValue<string>("externalServices:currencyToWordConverterApi:baseUrl");
-
 
         builder.Services.Configure<CurrencyToWordConverterApiOptions>(builder.Configuration.GetSection("externalServices").GetSection("currencyToWordConverterApi"));
 

@@ -4,6 +4,9 @@ using System.Windows.Input;
 
 namespace CurrencyToWordConverterClient.UiElements;
 
+/// <summary>
+/// TextBox that only accepts number inputs. All other inputs are ignored.
+/// </summary>
 public class NumberTextBox : TextBox {
 
     private static readonly Regex numbersRegex = new Regex("\\d+");

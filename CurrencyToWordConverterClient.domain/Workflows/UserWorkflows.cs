@@ -23,9 +23,9 @@ public class UserWorkflows {
     /// <exception cref="DomainErrors.ConnectionError"></exception>
     public async Task<CurrencyWordRepresentation> GetWordRepresentationOfGivenDollarAndCents(string dollarString, string centString) {
 
-        logger.LogInformation("Started getting word representation from interface");
+        logger.LogDebug("Started getting word representation from interface");
         var wordRepresentation = await currencyToWordConverter.GetWordRepresentationOfCurrency(new Currency(dollarString, centString));
-        logger.LogInformation("Finished getting word representation from interface");
+        logger.LogDebug("Finished getting word representation from interface");
 
         return wordRepresentation;
     }
