@@ -14,13 +14,11 @@ public class CurrencyToWordConverterAdapter {
     private readonly CurrencyToWordConverterApiOptions currencyToWordConverterApiOptions;
     private readonly ILogger<CurrencyToWordConverterAdapter> logger;
 
-
     public CurrencyToWordConverterAdapter(HttpClient httpClient, IOptions<CurrencyToWordConverterApiOptions> currencyToWordConverterApiOptions, ILogger<CurrencyToWordConverterAdapter> logger) {
         this.httpClient = httpClient;
         this.currencyToWordConverterApiOptions = currencyToWordConverterApiOptions.Value;
         this.logger = logger;
     }
-
 
     /// <summary>
     /// Gets the currency word representation string by its currency number string.
