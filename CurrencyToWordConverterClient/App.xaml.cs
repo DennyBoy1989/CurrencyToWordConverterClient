@@ -16,19 +16,22 @@ public partial class App : Application {
 
     public App() {
 
-        //var builder = Host.CreateApplicationBuilder().Build();
-        //builder.Configuration.AddJsonFile("externalServicesSettings.json", optional: false, reloadOnChange: true);
+        var builder = Host.CreateApplicationBuilder();
 
-        AppHost = Host.CreateDefaultBuilder().ConfigureServices((hostContext, services) => {
-            services.AddHttpClient<CurrencyToWordConverterAdapter>();
+        var test = builder.Configuration.GetValue<string>("externalServices:currencyToWordConverterApi:baseUrl");
 
-            services.AddSingleton<CurrencyToWordConverterAdapter>();
-            services.AddSingleton<ICurrencyToWordConverter, CurrencyToWordConverter>();
-            services.AddSingleton<UserWorkflows>();
-            services.AddSingleton<MainWindow>();
-            services.AddSingleton<CurrencyToWordConverterVm>();
+
+        builder.Services.Configure<CurrencyToWordConverterApiOptions>(builder.Configuration.GetSection("externalServices").GetSection("currencyToWordConverterApi"));
+
+        builder.Services.AddHttpClient<CurrencyToWordConverterAdapter>();
+
+        builder.Services.AddSingleton<CurrencyToWordConverterAdapter>();
+        builder.Services.AddSingleton<ICurrencyToWordConverter, CurrencyToWordConverter>();
+        builder.Services.AddSingleton<UserWorkflows>();
+        builder.Services.AddSingleton<MainWindow>();
+        builder.Services.AddSingleton<CurrencyToWordConverterVm>();
             
-        }).Build();
+        AppHost = builder.Build();
     }
 
     protected override async void OnStartup(StartupEventArgs e) {
