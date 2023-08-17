@@ -7,7 +7,7 @@ This is an example WPF client application, that uses the [CurencyToWordConverter
 First clone this repository and open in your favorite IDE. Since this application requires a running /wordrepresentation endpoint of the [CurencyToWordConverterAPI](https://github.com/DennyBoy1989/CurrencyToWordConverter), the next step should be, to checkout the CurencyToWordConverterAPI and get it running with the https profile (check the readme of that project as well). If you didn't change the ports and just started the API project, the endpoint will available on port 7107 ("https://localhost:7107/wordrepresentation"). This endpoint is already set as default in the appsettings.json of the client project. If you run the API on a different port, open the appsettings.json of the client and change the property externalServices:currencyToWordConverterApi:baseUrl to that port. When the API is running and the port is correctly set, you can start the WPF application.
 
 ## Principles
-This project is very small, but I tried to demonstrate some principiles, that I like to use:
+This project is very small, but I tried to demonstrate some principles, that I like to use:
 ### Model-View-Viewmodel
 In the frameworks Angular and Vue you normally work with Viewmodels, that hold the states, that are bound to your view. This decouples the display logic from the actual logic, that executes, when the user interacts, with the UI and also makes it more testable. I really like this principle and there is support for this pattern in WPF applications. So I imported the Community Toolkit MVVM into the project and created a CurrencyToWordConverterVm, which is the ViewModel of the MainWindow.xaml.
 ### Clean Architecture

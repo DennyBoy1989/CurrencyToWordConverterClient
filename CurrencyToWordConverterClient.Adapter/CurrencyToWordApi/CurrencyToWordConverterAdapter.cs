@@ -23,6 +23,7 @@ public class CurrencyToWordConverterAdapter {
     /// <summary>
     /// Gets the currency word representation string by its currency number string.
     /// </summary>
+    /// <exception cref="ConnectionError"></exception>
     public virtual async Task<string> GetWordRepresentation(string currencyString) {
         HttpResponseMessage response;
         using (var request = new HttpRequestMessage(HttpMethod.Get, $"{currencyToWordConverterApiOptions.BaseUrl}/{currencyString}")) {
